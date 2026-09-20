@@ -1,0 +1,51 @@
+# TODO: this job's steps are a Node/npm example. Replace install/lint/check/build
+# with this project's real commands (flutter pub get / flutter analyze / flutter test,
+# ./gradlew ktlintCheck / ./gradlew test, pip install -r requirements.txt / pytest, ...).
+# Do NOT rename the job below — scripts/merge-pr.mjs and the branch ruleset both
+# require a check literally named "Quality".
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    name: Quality
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v7
+
+      # TODO: replace this whole block with your stack's setup/install/lint/test/build.
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Test
+        run: npm test
+
+      - name: Build
+        run: npm run build

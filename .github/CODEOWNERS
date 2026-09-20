@@ -1,0 +1,21 @@
+# Critical governance, security, dependency, and release surfaces.
+# Ownership requests review; ruleset enforcement is configured separately.
+# TODO: replace @YOUR-GITHUB-USERNAME below.
+
+.github/CODEOWNERS @YOUR-GITHUB-USERNAME
+.github/ISSUE_TEMPLATE/ @YOUR-GITHUB-USERNAME
+.github/pull_request_template.md @YOUR-GITHUB-USERNAME
+.github/dependabot.yml @YOUR-GITHUB-USERNAME
+.github/workflows/ @YOUR-GITHUB-USERNAME
+
+CONTRIBUTING.md @YOUR-GITHUB-USERNAME
+CODE_OF_CONDUCT.md @YOUR-GITHUB-USERNAME
+SECURITY.md @YOUR-GITHUB-USERNAME
+
+release-please-config.json @YOUR-GITHUB-USERNAME
+.release-please-manifest.json @YOUR-GITHUB-USERNAME
+
+# TODO: add this project's own manifest/lockfile/version files here, e.g.:
+# package.json @YOUR-GITHUB-USERNAME
+# pubspec.yaml @YOUR-GITHUB-USERNAME
+# build.gradle.kts @YOUR-GITHUB-USERNAME

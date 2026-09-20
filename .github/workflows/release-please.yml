@@ -1,0 +1,56 @@
+# Requires a GitHub App installed on this repo with contents:write + pull-requests:write,
+# and its ID/private key stored as RELEASE_PLEASE_APP_ID / RELEASE_PLEASE_PRIVATE_KEY repo
+# secrets. A GitHub App (not github-actions[bot] or a personal token) is what lets Release
+# PR checks run unattended and keeps the commit author as a real identity, not a shared bot.
+name: Release Please
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: release-please-main
+  cancel-in-progress: false
+
+jobs:
+  release-please:
+    name: Release Please
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          app-id: ${{ secrets.RELEASE_PLEASE_APP_ID }}
+          private-key: ${{ secrets.RELEASE_PLEASE_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: ${{ github.repository }}
+
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          fetch-depth: 0
+
+      - name: Run Release Please
+        uses: googleapis/release-please-action@v4
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
+
+      # TODO: if this project keeps its version number duplicated in a second file
+      # (a plugin manifest, a native build config, ...), add a step here that checks
+      # that file out on the Release PR branch, regenerates it, and pushes as the real
+      # PR author — see the GuKi Chat repo's release-please.yml for a worked example.
+      # Most projects with a single release-please-config.json "extra-files" entry
+      # don't need this at all.

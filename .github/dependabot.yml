@@ -1,0 +1,26 @@
+version: 2
+updates:
+  # TODO: set package-ecosystem to match this project's stack, e.g.:
+  #   npm (Node), pub (Dart/Flutter), gradle (Kotlin/Android), pip (Python),
+  #   bundler (Ruby), gomod (Go), maven, cargo, ...
+  # See: https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#package-ecosystem
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 5
+    groups:
+      development-dependencies:
+        dependency-type: development
+    # If a grouped update ever proposes a combination of packages whose peer
+    # dependencies cannot resolve together (real example: bumping a language's
+    # major version ahead of a lint plugin that still caps it), add a targeted
+    # ignore rule for the offending dependency rather than disabling the group:
+    # ignore:
+    #   - dependency-name: "some-package"
+    #     update-types: ["version-update:semver-major"]
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: monthly

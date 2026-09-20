@@ -33,10 +33,10 @@ For each row below, check the *current repo* (not the template) and classify as
 `TODO`/`[TODO: ...]` marker copied from the template).
 
 **Files:**
-- `.github/CODEOWNERS`, `.github/pull_request_template.md`, `.github/ISSUE_TEMPLATE/*`,
+- `AGENTS.md`, `.github/CODEOWNERS`, `.github/pull_request_template.md`, `.github/ISSUE_TEMPLATE/*`,
   `.github/dependabot.yml`, `.github/workflows/{ci,pr-title,merge-attribution-audit,release-please,release}.yml`,
-  `release-please-config.json`, `.release-please-manifest.json`, `CODE_OF_CONDUCT.md`,
-  `CONTRIBUTING.md`, `SECURITY.md`, `LICENSE`, `.gitignore`, `scripts/merge-pr.mjs`.
+  `release-please-config.json`, `.release-please-manifest.json`, `.github/CODE_OF_CONDUCT.md`,
+  `.github/CONTRIBUTING.md`, `.github/SECURITY.md`, `LICENSE`, `.gitignore`, `scripts/merge-pr.mjs`.
 
 **Settings** (`gh api`, not files — see `bootstrap/setup.sh`'s five features):
 - `merge_settings`, `security_alerts`, `codeql`, `labels`, `ruleset`. Read current state before
@@ -47,7 +47,7 @@ For each row below, check the *current repo* (not the template) and classify as
 **Visibility branching — apply before proposing, not after:**
 - Always propose regardless of visibility: `merge_settings`, `security_alerts`, `ruleset`,
   CODEOWNERS, dependabot.yml, CI workflows, LICENSE, .gitignore.
-- Public only: `CODE_OF_CONDUCT.md`, issue/PR templates, `codeql`/`labels` (these exist to serve
+- Public only: `.github/CODE_OF_CONDUCT.md`, issue/PR templates, `codeql`/`labels` (these exist to serve
   outside contributors; a private solo repo doesn't need them — offer once, don't insist).
 - Private + no GitHub Advanced Security confirmed: do **not** propose `codeql` or secret
   scanning as a plain checklist item. State explicitly that it needs a paid add-on
@@ -60,7 +60,7 @@ Present findings as a numbered list, one item per file or setting, in this shape
 
 ```
 1. [missing] .github/CODEOWNERS — add with @<detected-or-asked-owner>
-2. [placeholder] SECURITY.md — still has [TODO: OWNER]/[TODO: REPO], will fill from repo identity
+2. [placeholder] .github/SECURITY.md — still has [TODO: OWNER]/[TODO: REPO], will fill from repo identity
 3. [setting, public repo] codeql — not configured, propose enabling (free on public repos)
 4. [setting, private repo] codeql — not configured; requires GitHub Advanced Security on this org's plan — confirm before enabling
 5. [stack-specific] .github/workflows/ci.yml — currently a Node example; this repo is Flutter (pubspec.yaml found) — propose replacing install/lint/test/build with flutter pub get / flutter analyze / flutter test

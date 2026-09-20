@@ -10,6 +10,10 @@ Every place that had to be specific in the source project (Node/npm commands, Ob
 asset names, a manifest-file version sync) is marked `TODO` and listed in
 [`TEMPLATE_CHECKLIST.md`](TEMPLATE_CHECKLIST.md).
 
+Community-health files (`CODE_OF_CONDUCT.md`, `CONTRIBUTING.md`, `SECURITY.md`) live under
+`.github/` rather than the repo root — GitHub recognizes them there. [`AGENTS.md`](AGENTS.md) at
+the root carries the same commit/PR rules for coding agents other than Claude Code.
+
 ## Two halves
 
 1. **Files** (this repo's content) — copied automatically when you create a new repository

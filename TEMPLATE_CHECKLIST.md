@@ -17,9 +17,10 @@ turns each row into an approval-gated item rather than silently applying it — 
 | `.github/workflows/release-please.yml` | Add a version-file-sync step only if the project duplicates its version number in a second file | only if applicable — most projects don't need this |
 | `release-please-config.json` | Set `package-name`; change `release-type` from `"simple"` if a more specific release-please type fits (`node`, `python`, `java`, `dart`, ...) | always |
 | `.release-please-manifest.json` | Set the starting version to match the project's actual current version | always |
-| `CODE_OF_CONDUCT.md` | Replace `[TODO: contact email]` | only on public repos with outside contributors |
-| `CONTRIBUTING.md` | Replace `[TODO: PROJECT NAME]` and the local-development section | always |
-| `SECURITY.md` | Replace `[TODO: OWNER]`/`[TODO: REPO]` | always |
+| `.github/CODE_OF_CONDUCT.md` | Replace `[TODO: contact email]` | only on public repos with outside contributors |
+| `.github/CONTRIBUTING.md` | Replace `[TODO: PROJECT NAME]` and the local-development section | always |
+| `.github/SECURITY.md` | Replace `[TODO: OWNER]`/`[TODO: REPO]` | always |
+| `AGENTS.md` | Replace the repo/stack description; keep in sync with `.github/CONTRIBUTING.md` and `CLAUDE.md` if one is added later | always |
 | `scripts/merge-pr.mjs` | Nothing, if `ci.yml`/`pr-title.yml` job names are kept as `Quality`/`Conventional Commits` | always |
 | `LICENSE` | Replace the copyright holder/year if forked by someone else; swap the license text entirely if MIT isn't the right choice | always |
 | `.gitignore` | Add the real stack's build/dependency ignores (see the TODO comment inside) | always |
@@ -33,7 +34,7 @@ script). A setup skill must check the repo's actual visibility first
 - **Always sensible regardless of visibility:** branch ruleset (PR required, checks required,
   conversation resolution required), squash-only merge settings, Dependabot vulnerability
   alerts + automated security fixes.
-- **Only meaningful on public repos:** `CODE_OF_CONDUCT.md`, issue/PR templates aimed at outside
+- **Only meaningful on public repos:** `.github/CODE_OF_CONDUCT.md`, issue/PR templates aimed at outside
   contributors, Discussions. A private repo with no outside contributors doesn't need a code of
   conduct; offer it, don't force it.
 - **Requires a paid GitHub add-on on private repos — confirm before suggesting:** GitHub code

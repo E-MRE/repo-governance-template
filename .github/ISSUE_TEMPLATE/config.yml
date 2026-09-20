@@ -5,7 +5,7 @@ contact_links:
     url: https://github.com/OWNER/REPO/security/advisories
     about: Do not open a public issue. Use GitHub's private vulnerability reporting channel.
   - name: Read the contribution guide
-    url: https://github.com/OWNER/REPO/blob/main/CONTRIBUTING.md
+    url: https://github.com/OWNER/REPO/blob/main/.github/CONTRIBUTING.md
     about: Learn how to propose, claim, test, and submit changes.
   - name: Ask an ordinary project question
     url: https://github.com/OWNER/REPO/issues

@@ -1,0 +1,12 @@
+# OS and editor junk — safe for every stack.
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# TODO: add this project's real stack-specific ignores, e.g.:
+#   node_modules/, dist/, build/          (Node)
+#   .dart_tool/, build/, .flutter-plugins* (Flutter)
+#   .gradle/, build/, *.iml               (Kotlin/Android)
+#   __pycache__/, *.pyc, .venv/           (Python)

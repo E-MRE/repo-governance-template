@@ -20,6 +20,8 @@ approval-gated item rather than silently applying it.
 | `CONTRIBUTING.md` | Replace `[TODO: PROJECT NAME]` and the local-development section | always |
 | `SECURITY.md` | Replace `[TODO: OWNER]`/`[TODO: REPO]` | always |
 | `scripts/merge-pr.mjs` | Nothing, if `ci.yml`/`pr-title.yml` job names are kept as `Quality`/`Conventional Commits` | always |
+| `LICENSE` | Replace the copyright holder/year if forked by someone else; swap the license text entirely if MIT isn't the right choice | always |
+| `.gitignore` | Add the real stack's build/dependency ignores (see the TODO comment inside) | always |
 
 ## Visibility-dependent items (not files — repository/organization settings)
 

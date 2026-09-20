@@ -2,8 +2,9 @@
 
 This file is the machine- and human-readable list of everything in this template that is
 generic on purpose and needs a project-specific decision before (or shortly after) first use.
-A setup skill should read this file, check the target repo, and turn each row into an
-approval-gated item rather than silently applying it.
+The `.claude/skills/repo-governance-audit/` skill reads this file, checks the target repo, and
+turns each row into an approval-gated item rather than silently applying it — invoke it with
+"audit repo governance" or similar in a Claude Code session inside the target repo.
 
 | File | What to change | Applies to |
 |---|---|---|

@@ -21,11 +21,17 @@ asset names, a manifest-file version sync) is marked `TODO` and listed in
 ## Using this template
 
 1. On GitHub: **Use this template → Create a new repository**.
-2. Work through [`TEMPLATE_CHECKLIST.md`](TEMPLATE_CHECKLIST.md) — replace every `TODO` and
-   placeholder with the real project's values.
-3. Run `bootstrap/setup.sh --repo OWNER/NAME` to apply the settings half (interactive by
-   default; see `bootstrap/README.md` for flags).
-4. Delete `TEMPLATE_CHECKLIST.md` and this section of the README once done.
+2. In a Claude Code session inside the new repo, ask for "audit repo governance" — the bundled
+   `.claude/skills/repo-governance-audit/` skill reads `TEMPLATE_CHECKLIST.md`, detects the
+   project's real stack and visibility, proposes every fix as an approval-gated item, and applies
+   only what's approved (including running `bootstrap/setup.sh` for the settings half).
+3. Without Claude Code: work through [`TEMPLATE_CHECKLIST.md`](TEMPLATE_CHECKLIST.md) by hand,
+   then run `bootstrap/setup.sh --repo OWNER/NAME` yourself (interactive by default; see
+   `bootstrap/README.md` for flags).
+4. `TEMPLATE_CHECKLIST.md` and this section of the README are meant to be deleted once every
+   item is resolved — the skill proposes this once it detects nothing is left. `bootstrap/` and
+   `scripts/merge-pr.mjs` are not setup scaffolding; keep them, they're used for the life of the
+   repo.
 
 ## What's deliberately not included
 

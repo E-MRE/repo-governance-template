@@ -24,3 +24,8 @@ updates:
     directory: "/"
     schedule:
       interval: monthly
+    # Grouped updates (like npm's above) get an automatic Conventional-Commits-style
+    # title; an ungrouped ecosystem does not, so it fails the "Conventional Commits"
+    # required check without this explicit prefix.
+    commit-message:
+      prefix: "chore"
